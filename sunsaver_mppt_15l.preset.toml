@@ -12,51 +12,53 @@ version = "0.1.0"
 brokkr_version_min = "0.3.0"
 
 [type_presets]
-_V = { conversion = "custom", scale = 100, base = 2, power = -15, digits = 3 }
-_V_ref = { conversion = "custom", scale = 96.667, base = 2, power = -15, digits = 3 }
-_A = { conversion = "custom", scale = 79.16, base = 2, power = -15, digits = 3 }
-_A_h = { conversion = "custom", scale = 0.1, digits = 1 }
-_W = { conversion = "custom", scale = 989.5, base = 2, power = -16, digits = 3 }
+voltage = { conversion = "custom", unit = "V", uncertainty = true, scale = 100, base = 2, power = -15, digits = 3 }
+voltage_ref = { conversion = "custom", unit = "V", uncertainty = true, scale = 96.667, base = 2, power = -15, digits = 3 }
+amps = { conversion = "custom", unit = "A", uncertainty = true, scale = 79.16, base = 2, power = -15, digits = 3 }
+amp_hours = { conversion = "custom", unit = "Ah", uncertainty = true, scale = 0.1, digits = 1 }
+watts = { conversion = "custom", unit = "W", uncertainty = true, scale = 989.5, base = 2, power = -16, digits = 3 }
+temp = { input_type = "h", unit = "C", uncertainty = 1 }
+bitfield = { conversion = "bitfield", unit = false, uncertainty = false }
 
 [data_types]
-adc_vb_f = { type_presets = "_V" }
-adc_va_f = { type_presets = "_V" }
-adc_vl_f = { type_presets = "_V" }
-adc_ic_f = { type_presets = "_A" }
-adc_il_f = { type_presets = "_A" }
-t_hs = { input_type = "h" }
-t_batt = { input_type = "h" }
-t_amb = { input_type = "h" }
-t_rts = { input_type = "h" }
-charge_state = {}
-array_fault = { conversion = "bitfield" }
-vb_f = { type_presets = "_V" }
-vb_ref = { type_presets = "_V_ref" }
-ahc_r = { input_type = "I", type_presets = "_A_h" }
-ahc_t = { input_type = "I", type_presets = "_A_h" }
-kwhc = { type_presets = "_A_h" }
-load_state = {}
-load_fault = { conversion = "bitfield" }
-v_lvd = { type_presets = "_V" }
-ahl_r = { input_type = "I", type_presets = "_A_h" }
-ahl_t = { input_type = "I", type_presets = "_A_h" }
-hourmeter = { input_type = "I" }
+adc_vb_f = { full_name = "Batt Voltage", type_presets = "voltage" }
+adc_va_f = { full_name = "Array Voltage", type_presets = "voltage" }
+adc_vl_f = { full_name = "Load Voltage", type_presets = "voltage" }
+adc_ic_f = { full_name = "Charge Current", type_presets = "amps" }
+adc_il_f = { full_name = "Load Current", type_presets = "amps" }
+t_hs = { full_name = "Heatsink Temp", type_presets = "temp" }
+t_batt = { full_name = "Battery Temp", type_presets = "temp" }
+t_amb = { full_name = "Ambient Temp", type_presets = "temp" }
+t_rts = { full_name = "Remote Temp", type_presets = "temp" }
+charge_state = { unit = false, uncertainty = false }
+array_fault = { type_presets = "bitfield" }
+vb_f = { full_name = "Batt Voltage Slow", type_presets = "voltage" }
+vb_ref = { full_name = "Ref Voltage", type_presets = "voltage_ref" }
+ahc_r = { full_name = "Ah Charge (rst)", input_type = "I", type_presets = "amp_hours" }
+ahc_t = { full_name = "Ah Charge (tot)", input_type = "I", type_presets = "amp_hours" }
+kwhc = { full_name = "kWh Charge", type_presets = "amp_hours" }
+load_state = { unit = false, uncertainty = false }
+load_fault = { type_presets = "bitfield" }
+v_lvd = { full_name = "LVD Voltage", type_presets = "voltage" }
+ahl_r = { full_name = "Ah Load (rst)", input_type = "I", type_presets = "amp_hours" }
+ahl_t = { full_name = "Ah Load (tot)", input_type = "I", type_presets = "amp_hours" }
+hourmeter = { input_type = "I", unit = "h", uncertainty = 1 }
 alarm = { input_type = "I", conversion = "bitfield" }
-dip_switch = { conversion = "bitfield" }
-led_state = {}
-power_out = { type_presets = "_W" }
-sweep_vmp = { type_presets = "_V" }
-sweep_pmax = { type_presets = "_W" }
-sweep_voc = { type_presets = "_V" }
-vb_min_daily = { type_presets = "_V" }
-vb_max_daily = { type_presets = "_V" }
-ahc_daily = { type_presets = "_A_h" }
-ahl_daily = { type_presets = "_A_h" }
-array_fault_daily = { conversion = "bitfield" }
-load_fault_daily = { conversion = "bitfield" }
-alarm_daily = { input_type = "I", conversion = "bitfield" }
-vb_min = { type_presets = "_V" }
-vb_max = { type_presets = "_V" }
+dip_switch = { type_presets = "bitfield" }
+led_state = { full_name = "LED State", unit = false, uncertainty = false }
+power_out = { type_presets = "watts" }
+sweep_vmp = { type_presets = "voltage" }
+sweep_pmax = { type_presets = "watts" }
+sweep_voc = { type_presets = "voltage" }
+vb_min_daily = { type_presets = "voltage" }
+vb_max_daily = { type_presets = "voltage" }
+ahc_daily = { full_name = "Ah Charge Daily", type_presets = "amp_hours" }
+ahl_daily = { full_name = "Ah Load Daily", type_presets = "amp_hours" }
+array_fault_daily = { type_presets = "bitfield" }
+load_fault_daily = { type_presets = "bitfield" }
+alarm_daily = { input_type = "I", type_presets = "bitfield" }
+vb_min = { full_name = "Batt Voltage Min", type_presets = "voltage" }
+vb_max = { full_name = "Batt Voltage Max", type_presets = "voltage" }
 
 [inputs.ram]
 _module_path = "brokkr.inputs.modbus"
