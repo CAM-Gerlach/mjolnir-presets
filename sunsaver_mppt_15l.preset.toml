@@ -1,7 +1,12 @@
+# Preset for the inputs available on a Morningstar MPPT-15L Charge Controller
+
 config_version = 1
+# Name of this device preset, used for lookup
 name = "sunsaver_mppt_15l"
+# Type of this preset
 type = "device"
 
+# Preset-level metadata; format follows that specified in the top-level
 [metadata]
 name_full = "Morningstar Sunsaver MPPT-15L charge controller"
 author = "C.A.M. Gerlach and the UAH HAMMA group"
@@ -11,6 +16,7 @@ repo = "https://github.com/hamma-dev/mjolnir-presets"
 version = "0.1.0"
 brokkr_version_min = "0.3.0"
 
+# Data type presets to use for the data types that follow
 [type_presets]
 voltage = { conversion = "custom", unit = "V", uncertainty = true, scale = 100, base = 2, power = -15, digits = 3 }
 voltage_ref = { conversion = "custom", unit = "V", uncertainty = true, scale = 96.667, base = 2, power = -15, digits = 3 }
@@ -20,6 +26,7 @@ watts = { conversion = "custom", unit = "W", uncertainty = true, scale = 989.5, 
 temp = { input_type = "h", unit = "C", uncertainty = 1 }
 bitfield = { conversion = "bitfield", unit = false, uncertainty = false }
 
+# Data types referenced in individual presets
 [data_types]
 adc_vb_f = { full_name = "Batt Voltage", type_presets = "voltage" }
 adc_va_f = { full_name = "Array Voltage", type_presets = "voltage" }
@@ -60,6 +67,7 @@ alarm_daily = { input_type = "I", type_presets = "bitfield" }
 vb_min = { full_name = "Batt Voltage Min", type_presets = "voltage" }
 vb_max = { full_name = "Batt Voltage Max", type_presets = "voltage" }
 
+# Input to read the RAM status data (holding registers) of the MPPT-15L
 [inputs.ram]
 _module_path = "brokkr.inputs.modbus"
 _class_name = "ModbusSerialInput"
