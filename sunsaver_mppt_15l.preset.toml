@@ -23,7 +23,7 @@ voltage_ref = { conversion = "custom", unit = "V", uncertainty = true, scale = 9
 amps = { conversion = "custom", unit = "A", uncertainty = true, scale = 79.16, base = 2, power = -15, digits = 3 }
 amp_hours = { conversion = "custom", unit = "Ah", uncertainty = true, scale = 0.1, digits = 1 }
 watts = { conversion = "custom", unit = "W", uncertainty = true, scale = 989.5, base = 2, power = -16, digits = 3 }
-temp = { input_type = "h", unit = "C", uncertainty = 1 }
+temp = { input_type = "h", unit = "C", uncertainty = 1, range_min = -128, range_max = 127 }
 bitfield = { conversion = "bitfield", unit = false, uncertainty = false }
 
 # Data types referenced in individual presets
