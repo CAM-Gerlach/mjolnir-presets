@@ -5,6 +5,8 @@ config_version = 1
 name = "sunsaver_mppt_15l"
 # Type of this preset
 type = "device"
+# Dependencies required by all inputs in this device preset
+_dependencies = [ "pymodbus", "pyserial" ]
 
 # Preset-level metadata; format follows that specified in the top-level
 [metadata]
@@ -71,6 +73,7 @@ vb_max = { full_name = "Batt Voltage Max", type_presets = "voltage" }
 [inputs.ram]
 _module_path = "brokkr.inputs.modbus"
 _class_name = "ModbusSerialInput"
+_dependencies = []
 name = "Charge Controller RAM Status Data"
 unit = 1
 start_address = 0x0008
