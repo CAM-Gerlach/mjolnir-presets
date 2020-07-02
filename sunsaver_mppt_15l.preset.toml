@@ -10,117 +10,118 @@ _dependencies = [ "pymodbus", "pyserial" ]
 
 # Preset-level metadata; format follows that specified in the top-level
 [metadata]
-name_full = "Morningstar Sunsaver MPPT-15L charge controller"
-author = "C.A.M. Gerlach and the UAH HAMMA group"
-description = "Device preset for the Morningstar Sunsaver MPPT-15L charge controller"
-homepage = "https://hamma.dev/"
-repo = "https://github.com/hamma-dev/mjolnir-presets"
-version = "0.1.0"
-brokkr_version_min = "0.3.0"
+    name_full = "Morningstar Sunsaver MPPT-15L charge controller"
+    author = "C.A.M. Gerlach and the UAH HAMMA group"
+    description = "Device preset for the Morningstar Sunsaver MPPT-15L charge controller"
+    homepage = "https://hamma.dev/"
+    repo = "https://github.com/hamma-dev/mjolnir-presets"
+    version = "0.1.0"
+    brokkr_version_min = "0.3.0"
 
 # Data type presets to use for the data types that follow
 [type_presets]
-voltage = { conversion = "custom", unit = "V", uncertainty = true, scale = 100, base = 2, power = -15, digits = 3 }
-voltage_ref = { conversion = "custom", unit = "V", uncertainty = true, scale = 96.667, base = 2, power = -15, digits = 3 }
-amps = { conversion = "custom", unit = "A", uncertainty = true, scale = 79.16, base = 2, power = -15, digits = 3 }
-amp_hours = { conversion = "custom", unit = "Ah", uncertainty = true, scale = 0.1, digits = 1 }
-watts = { conversion = "custom", unit = "W", uncertainty = true, scale = 989.5, base = 2, power = -16, digits = 3 }
-temp = { input_type = "h", unit = "C", uncertainty = 1, range_min = -128, range_max = 127 }
-bitfield = { conversion = "bitfield", unit = false, uncertainty = false }
+    voltage = { conversion = "custom", unit = "V", uncertainty = true, scale = 100, base = 2, power = -15, digits = 3 }
+    voltage_ref = { conversion = "custom", unit = "V", uncertainty = true, scale = 96.667, base = 2, power = -15, digits = 3 }
+    amps = { conversion = "custom", unit = "A", uncertainty = true, scale = 79.16, base = 2, power = -15, digits = 3 }
+    amp_hours = { conversion = "custom", unit = "Ah", uncertainty = true, scale = 0.1, digits = 1 }
+    watts = { conversion = "custom", unit = "W", uncertainty = true, scale = 989.5, base = 2, power = -16, digits = 3 }
+    temp = { input_type = "h", unit = "C", uncertainty = 1, range_min = -128, range_max = 127 }
+    bitfield = { conversion = "bitfield", unit = false, uncertainty = false }
 
 # Data types referenced in individual presets
 [data_types]
-adc_vb_f = { full_name = "Batt Voltage", type_presets = "voltage" }
-adc_va_f = { full_name = "Array Voltage", type_presets = "voltage" }
-adc_vl_f = { full_name = "Load Voltage", type_presets = "voltage" }
-adc_ic_f = { full_name = "Charge Current", type_presets = "amps" }
-adc_il_f = { full_name = "Load Current", type_presets = "amps" }
-t_hs = { full_name = "Heatsink Temp", type_presets = "temp" }
-t_batt = { full_name = "Battery Temp", type_presets = "temp" }
-t_amb = { full_name = "Ambient Temp", type_presets = "temp" }
-t_rts = { full_name = "Remote Temp", type_presets = "temp" }
-charge_state = { unit = false, uncertainty = false }
-array_fault = { type_presets = "bitfield" }
-vb_f = { full_name = "Batt Voltage Slow", type_presets = "voltage" }
-vb_ref = { full_name = "Ref Voltage", type_presets = "voltage_ref" }
-ahc_r = { full_name = "Ah Charge (rst)", input_type = "I", type_presets = "amp_hours" }
-ahc_t = { full_name = "Ah Charge (tot)", input_type = "I", type_presets = "amp_hours" }
-kwhc = { full_name = "kWh Charge", type_presets = "amp_hours" }
-load_state = { unit = false, uncertainty = false }
-load_fault = { type_presets = "bitfield" }
-v_lvd = { full_name = "LVD Voltage", type_presets = "voltage" }
-ahl_r = { full_name = "Ah Load (rst)", input_type = "I", type_presets = "amp_hours" }
-ahl_t = { full_name = "Ah Load (tot)", input_type = "I", type_presets = "amp_hours" }
-hourmeter = { input_type = "I", unit = "h", uncertainty = 1 }
-alarm = { input_type = "I", conversion = "bitfield" }
-dip_switch = { type_presets = "bitfield" }
-led_state = { full_name = "LED State", unit = false, uncertainty = false }
-power_out = { type_presets = "watts" }
-sweep_vmp = { type_presets = "voltage" }
-sweep_pmax = { type_presets = "watts" }
-sweep_voc = { type_presets = "voltage" }
-vb_min_daily = { type_presets = "voltage" }
-vb_max_daily = { type_presets = "voltage" }
-ahc_daily = { full_name = "Ah Charge Daily", type_presets = "amp_hours" }
-ahl_daily = { full_name = "Ah Load Daily", type_presets = "amp_hours" }
-array_fault_daily = { type_presets = "bitfield" }
-load_fault_daily = { type_presets = "bitfield" }
-alarm_daily = { input_type = "I", type_presets = "bitfield" }
-vb_min = { full_name = "Batt Voltage Min", type_presets = "voltage" }
-vb_max = { full_name = "Batt Voltage Max", type_presets = "voltage" }
+    adc_vb_f = { full_name = "Batt Voltage", type_presets = "voltage" }
+    adc_va_f = { full_name = "Array Voltage", type_presets = "voltage" }
+    adc_vl_f = { full_name = "Load Voltage", type_presets = "voltage" }
+    adc_ic_f = { full_name = "Charge Current", type_presets = "amps" }
+    adc_il_f = { full_name = "Load Current", type_presets = "amps" }
+    t_hs = { full_name = "Heatsink Temp", type_presets = "temp" }
+    t_batt = { full_name = "Battery Temp", type_presets = "temp" }
+    t_amb = { full_name = "Ambient Temp", type_presets = "temp" }
+    t_rts = { full_name = "Remote Temp", type_presets = "temp" }
+    charge_state = { unit = false, uncertainty = false }
+    array_fault = { type_presets = "bitfield" }
+    vb_f = { full_name = "Batt Voltage Slow", type_presets = "voltage" }
+    vb_ref = { full_name = "Ref Voltage", type_presets = "voltage_ref" }
+    ahc_r = { full_name = "Ah Charge (rst)", input_type = "I", type_presets = "amp_hours" }
+    ahc_t = { full_name = "Ah Charge (tot)", input_type = "I", type_presets = "amp_hours" }
+    kwhc = { full_name = "kWh Charge", type_presets = "amp_hours" }
+    load_state = { unit = false, uncertainty = false }
+    load_fault = { type_presets = "bitfield" }
+    v_lvd = { full_name = "LVD Voltage", type_presets = "voltage" }
+    ahl_r = { full_name = "Ah Load (rst)", input_type = "I", type_presets = "amp_hours" }
+    ahl_t = { full_name = "Ah Load (tot)", input_type = "I", type_presets = "amp_hours" }
+    hourmeter = { input_type = "I", unit = "h", uncertainty = 1 }
+    alarm = { input_type = "I", conversion = "bitfield" }
+    dip_switch = { type_presets = "bitfield" }
+    led_state = { full_name = "LED State", unit = false, uncertainty = false }
+    power_out = { type_presets = "watts" }
+    sweep_vmp = { type_presets = "voltage" }
+    sweep_pmax = { type_presets = "watts" }
+    sweep_voc = { type_presets = "voltage" }
+    vb_min_daily = { type_presets = "voltage" }
+    vb_max_daily = { type_presets = "voltage" }
+    ahc_daily = { full_name = "Ah Charge Daily", type_presets = "amp_hours" }
+    ahl_daily = { full_name = "Ah Load Daily", type_presets = "amp_hours" }
+    array_fault_daily = { type_presets = "bitfield" }
+    load_fault_daily = { type_presets = "bitfield" }
+    alarm_daily = { input_type = "I", type_presets = "bitfield" }
+    vb_min = { full_name = "Batt Voltage Min", type_presets = "voltage" }
+    vb_max = { full_name = "Batt Voltage Max", type_presets = "voltage" }
 
-# Input to read the RAM status data (holding registers) of the MPPT-15L
-[inputs.ram]
-_module_path = "brokkr.inputs.modbus"
-_class_name = "ModbusSerialInput"
-_dependencies = []
-name = "Charge Controller RAM Status Data"
-unit = 1
-start_address = 0x0008
-serial_port = ""
-serial_pids = [ 24597 ]
-try_usb_reset = true
-modbus_kwargs.baudrate = 9600
-modbus_kwargs.parity = "N"
-modbus_kwargs.stopbits = 2
-modbus_kwargs.strict = false
-data_types = [
-    "adc_vb_f",
-    "adc_va_f",
-    "adc_vl_f",
-    "adc_ic_f",
-    "adc_il_f",
-    "t_hs",
-    "t_batt",
-    "t_amb",
-    "t_rts",
-    "charge_state",
-    "array_fault",
-    "vb_f",
-    "vb_ref",
-    "ahc_r",
-    "ahc_t",
-    "kwhc",
-    "load_state",
-    "load_fault",
-    "v_lvd",
-    "ahl_r",
-    "ahl_t",
-    "hourmeter",
-    "alarm",
-    "dip_switch",
-    "led_state",
-    "power_out",
-    "sweep_vmp",
-    "sweep_pmax",
-    "sweep_voc",
-    "vb_min_daily",
-    "vb_max_daily",
-    "ahc_daily",
-    "ahl_daily",
-    "array_fault_daily",
-    "load_fault_daily",
-    "alarm_daily",
-    "vb_min",
-    "vb_max",
-]
+[inputs]
+    # Input to read the RAM status data (holding registers) of the MPPT-15L
+    [inputs.ram]
+        _module_path = "brokkr.inputs.modbus"
+        _class_name = "ModbusSerialInput"
+        _dependencies = []
+        name = "Charge Controller RAM Status Data"
+        unit = 1
+        start_address = 0x0008
+        serial_port = ""
+        serial_pids = [ 24597 ]
+        try_usb_reset = true
+        modbus_kwargs.baudrate = 9600
+        modbus_kwargs.parity = "N"
+        modbus_kwargs.stopbits = 2
+        modbus_kwargs.strict = false
+        data_types = [
+            "adc_vb_f",
+            "adc_va_f",
+            "adc_vl_f",
+            "adc_ic_f",
+            "adc_il_f",
+            "t_hs",
+            "t_batt",
+            "t_amb",
+            "t_rts",
+            "charge_state",
+            "array_fault",
+            "vb_f",
+            "vb_ref",
+            "ahc_r",
+            "ahc_t",
+            "kwhc",
+            "load_state",
+            "load_fault",
+            "v_lvd",
+            "ahl_r",
+            "ahl_t",
+            "hourmeter",
+            "alarm",
+            "dip_switch",
+            "led_state",
+            "power_out",
+            "sweep_vmp",
+            "sweep_pmax",
+            "sweep_voc",
+            "vb_min_daily",
+            "vb_max_daily",
+            "ahc_daily",
+            "ahl_daily",
+            "array_fault_daily",
+            "load_fault_daily",
+            "alarm_daily",
+            "vb_min",
+            "vb_max",
+        ]
