@@ -24,6 +24,7 @@ _dependencies = [ "pymodbus", "pyserial" ]
     voltage_ref = { conversion = "custom", unit = "V", uncertainty = true, scale = 96.667, base = 2, power = -15, digits = 3 }
     amps = { conversion = "custom", unit = "A", uncertainty = true, scale = 79.16, base = 2, power = -15, digits = 3 }
     amp_hours = { conversion = "custom", unit = "Ah", uncertainty = true, scale = 0.1, digits = 1 }
+    kilowatt_hours = { conversion = "custom", unit = "kWh", uncertainty = true, scale = 0.1, digits = 1 }
     watts = { conversion = "custom", unit = "W", uncertainty = true, scale = 989.5, base = 2, power = -16, digits = 3 }
     temp = { input_type = "h", unit = "C", uncertainty = 1, range_min = -128, range_max = 127 }
     bitfield = { conversion = "bitfield", unit = false, uncertainty = false }
@@ -45,7 +46,7 @@ _dependencies = [ "pymodbus", "pyserial" ]
     vb_ref = { full_name = "Ref Voltage", type_presets = "voltage_ref" }
     ahc_r = { full_name = "Ah Charge (rst)", input_type = "I", type_presets = "amp_hours" }
     ahc_t = { full_name = "Ah Charge (tot)", input_type = "I", type_presets = "amp_hours" }
-    kwhc = { full_name = "kWh Charge", type_presets = "amp_hours" }
+    kwhc = { full_name = "kWh Charge", type_presets = "kilowatt_hours" }
     load_state = { unit = false, uncertainty = false }
     load_fault = { type_presets = "bitfield" }
     v_lvd = { full_name = "LVD Voltage", type_presets = "voltage" }
